@@ -1,0 +1,371 @@
+==16452== Memcheck, a memory error detector
+==16452== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16452== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==16452== Command: ./cmock
+==16452== Parent PID: 4274
+==16452== 
+--16452-- 
+--16452-- Valgrind options:
+--16452--    --leak-check=full
+--16452--    --show-leak-kinds=all
+--16452--    --track-origins=yes
+--16452--    --verbose
+--16452--    --log-file=valgrind-out.txt
+--16452-- Contents of /proc/version:
+--16452--   Linux version 6.5.0-28-generic (buildd@lcy02-amd64-098) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2
+--16452-- 
+--16452-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--16452-- Page sizes: currently 4096, max supported 4096
+--16452-- Valgrind library directory: /usr/libexec/valgrind
+--16452-- Reading syms from /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock
+--16452-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--16452--   Considering /usr/lib/debug/.build-id/24/6ac0d8deba5a40c63e9a1a87d4d779d8eb589f.debug ..
+--16452--   .. build-id is valid
+--16452-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--16452--    object doesn't have a symbol table
+--16452--    object doesn't have a dynamic symbol table
+--16452-- Scheduler: using generic scheduler lock implementation.
+--16452-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==16452== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-16452-by-donp-on-???
+==16452== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-16452-by-donp-on-???
+==16452== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-16452-by-donp-on-???
+==16452== 
+==16452== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==16452== don't want to do, unless you know exactly what you're doing,
+==16452== or are doing some strange experiment):
+==16452==   /usr/bin/vgdb --pid=16452 ...command...
+==16452== 
+==16452== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==16452==   /path/to/gdb ./cmock
+==16452== and then give GDB the following command
+==16452==   target remote | /usr/bin/vgdb --pid=16452
+==16452== --pid is optional if only one valgrind process is running
+==16452== 
+--16452-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--16452-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--16452-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--16452--    object doesn't have a symbol table
+--16452-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--16452--    object doesn't have a symbol table
+==16452== WARNING: new redirection conflicts with existing -- ignoring it
+--16452--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--16452--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--16452-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--16452-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--16452-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--16452--   Considering /usr/lib/debug/.build-id/96/2015aa9d133c6cbcfb31ec300596d7f44d3348.debug ..
+--16452--   .. build-id is valid
+==16452== WARNING: new redirection conflicts with existing -- ignoring it
+--16452--     old: 0x0491bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--16452--     new: 0x0491bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==16452== WARNING: new redirection conflicts with existing -- ignoring it
+--16452--     old: 0x0491bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--16452--     new: 0x0491bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==16452== WARNING: new redirection conflicts with existing -- ignoring it
+--16452--     old: 0x0491bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--16452--     new: 0x0491bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==16452== WARNING: new redirection conflicts with existing -- ignoring it
+--16452--     old: 0x0491bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--16452--     new: 0x0491bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--16452-- REDIR: 0x491e720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e9e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e2e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x493ccd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f6d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x493b540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491fc10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x493b370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f5a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==16452== Preferring higher priority redirection:
+--16452--     old: 0x04a167c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--16452--     new: 0x04a167c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--16452-- REDIR: 0x493b3f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f9e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x493b9b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491fa70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x493b470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e1d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491fb60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x4927570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x4921010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491fb10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e6a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491e8d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f3f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491eb00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491f7d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x491fac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x4920f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--16452-- REDIR: 0x4a13610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--16452-- REDIR: 0x491b0a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--16452-- REDIR: 0x491efc0 (libc.so.6:__GI_strstr) redirected to 0x4853ae0 (__strstr_sse2)
+--16452-- REDIR: 0x491c520 (libc.so.6:calloc) redirected to 0x484d9d0 (calloc)
+--16452-- REDIR: 0x491b3e0 (libc.so.6:free) redirected to 0x484b210 (free)
+--16452-- REDIR: 0x4a0f2c0 (libc.so.6:__memchr_avx2) redirected to 0x484fd50 (memchr)
+--16452-- REDIR: 0x4a167c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--16452-- REDIR: 0x491b740 (libc.so.6:realloc) redirected to 0x484dc50 (realloc)
+==16452== Invalid write of size 8
+==16452==    at 0x109528: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x109540: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x109572: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x10959A: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x1095D0: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x1095F3: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x109616: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x109639: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x10965C: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x10967F: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== Invalid read of size 8
+==16452==    at 0x1096A3: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== HEAP SUMMARY:
+==16452==     in use at exit: 2,652 bytes in 20 blocks
+==16452==   total heap usage: 36 allocs, 16 frees, 19,932 bytes allocated
+==16452== 
+==16452== Searching for pointers to 20 not-freed blocks
+==16452== Checked 107,600 bytes
+==16452== 
+==16452== 0 bytes in 1 blocks are still reachable in loss record 1 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 12 bytes in 1 blocks are still reachable in loss record 2 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092A4: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 16 bytes in 1 blocks are still reachable in loss record 3 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x10978C: ps_fat_file_parsing_init (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x10972F: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 28 bytes in 1 blocks are still reachable in loss record 4 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1097B2: ps_fat_file_parsing_init (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x10972F: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 108 bytes in 7 blocks are indirectly lost in loss record 5 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x109581: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 332 (224 direct, 108 indirect) bytes in 7 blocks are definitely lost in loss record 6 of 8
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x109527: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 472 bytes in 1 blocks are still reachable in loss record 7 of 8
+==16452==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x48F564D: __fopen_internal (iofopen.c:65)
+==16452==    by 0x48F564D: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+==16452==    by 0x109766: ps_fat_file_parsing_init (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x10972F: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 1,792 bytes in 1 blocks are still reachable in loss record 8 of 8
+==16452==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x10A23B: process_entries_in_dir (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x10984A: ps_fat_file_parsing_init (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x10972F: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== LEAK SUMMARY:
+==16452==    definitely lost: 224 bytes in 7 blocks
+==16452==    indirectly lost: 108 bytes in 7 blocks
+==16452==      possibly lost: 0 bytes in 0 blocks
+==16452==    still reachable: 2,320 bytes in 6 blocks
+==16452==         suppressed: 0 bytes in 0 blocks
+==16452== 
+==16452== ERROR SUMMARY: 78 errors from 12 contexts (suppressed: 0 from 0)
+==16452== 
+==16452== 7 errors in context 1 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x1096A3: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 2 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x10967F: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 3 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x10965C: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 4 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x109639: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 5 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x109616: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 6 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x1095F3: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 7 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x1095D0: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 8 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x10959A: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 9 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x109572: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 10 of 12:
+==16452== Invalid read of size 8
+==16452==    at 0x109540: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== 
+==16452== 7 errors in context 11 of 12:
+==16452== Invalid write of size 8
+==16452==    at 0x109528: fl_file_filtering_process (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109739: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==  Address 0x4aa6ba0 is 0 bytes after a block of size 0 alloc'd
+==16452==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16452==    by 0x1092ED: fl_file_list_create (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452==    by 0x109734: main (in /media/donp/SSD_Work/EmbeddedDeveloper/C_mock/project/cmock)
+==16452== 
+==16452== ERROR SUMMARY: 78 errors from 12 contexts (suppressed: 0 from 0)
